@@ -44,10 +44,10 @@ def msg_options():
 def get_option():
     '''get an option from the use and run the corresponding method'''
 
-    print()
-    option = int(input("Enter a number: "))
-
     try:
+        print()
+        option = int(input("Enter a number: "))
+
         if option == 1:
             ret_create_n = create.run()
             if ret_create_n:
