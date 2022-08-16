@@ -4,12 +4,13 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 9:30 PM, August 16, 2022
-    Updated: Created _del_all_projects()
-             Created _del_some_projects()
+    Last modified: Tue 9:39 PM, August 16, 2022
+    Updated: Import shutil module
+             Reduce 2 _del...() to 1 method ( _del_projects() )
 '''
 
 import os
+import shutil
 
 # import my .py modules
 import common
@@ -59,16 +60,11 @@ class DeleteProject:
         return selected.split()
 
 
-    def _del_all_projects(self):
-        '''delete all projects at once'''
+    def _del_projects(self, projects):
+        '''delete some or all projects'''
         
-        pass
-
-
-    def _del_some_projects(self):
-        '''delete selected projects'''
-
-        pass
+        for project in projects:
+            shutil.rmtree(f"contents/{project}")
 
 
     def del_projects(self) -> bool:
@@ -90,3 +86,11 @@ class DeleteProject:
         if ret_confirm == 0:
             print("ERROR: wrong input")
             return False
+
+        # delete projects here
+        if inp_projects[0] == "all":
+            self._del_projects(self.projects)
+        else:
+            self._del_projects(inp_projects)
+
+        return True
