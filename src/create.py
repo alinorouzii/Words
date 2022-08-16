@@ -134,9 +134,9 @@ class CreateProject:
                 return False
 
             # print successful creation message
-            print(f"\n\"{name.title()}\" created successfully")
+            print(f"\n\"{dirname.title()}\" created successfully")
         except FileExistsError:
-            print(f"\nERROR: \"{name.title()}\" is already exist")
+            print(f"\nERROR: \"{dirname.title()}\" is already exist")
             return False
         except FileNotFoundError:
             print("\nERROR: \"contents\" direcotry does not exist")
