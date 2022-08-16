@@ -4,13 +4,15 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 6:39 PM, August 16, 2022
-    Updated: Renamed get_interval() to _get_interval because it's a inner method
+    Last modified: Tue 6:49 PM, August 16, 2022
+    Updated: import shutil module
+             complete create_project() in CreateProject class
 '''
 
 import json
 import os
 import datetime as dt
+import shutil
 
 # import my .py module
 import common
@@ -34,7 +36,7 @@ class CreateFiles:
         return interval
 
     
-    def create_settings(self, dirname, interval=1):
+    def create_settings(self, dirname):
         '''
             create settings.json file
             settings.json will contain:
@@ -51,7 +53,7 @@ class CreateFiles:
         interval  = self._get_interval()
 
         # error handling: if interval was wrong and returned False
-        if interval == False:
+        if not interval:
             return False
 
         settings = {
@@ -118,13 +120,26 @@ class CreateProject:
             # create a directory for the new project
             os.mkdir(dirname)
 
-            # before print, create 3 .json files here
+            # create 3 .json files
             create_files = CreateFiles()
+            ret_settings = create_files.create_settings(dirname)
+            ret_words    = create_files.create_words()
+            ret_wrongs   = create_files.create_wrongs()
 
-            # delete this directory if creating .json files fail
+            # error handling: if creating of each of these 3 files failed
+            # it must delete the project direcotry before return False
+            if not (ret_settings and ret_words and ret_wrongs):
+                print(f"ERROR: Creating \"{dirname.title()}\" failed")
+                shutil.rmtree(dirname)
+                return False
 
+            # print successful creation message
             print(f"\n\"{name.title()}\" created successfully")
         except FileExistsError:
             print(f"\nERROR: \"{name.title()}\" is already exist")
+            return False
         except FileNotFoundError:
             print("\nERROR: \"contents\" direcotry does not exist")
+            return False
+
+        return True
