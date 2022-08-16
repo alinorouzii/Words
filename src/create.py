@@ -4,8 +4,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 5:05 PM, August 16, 2022
-    changes: ?
+    Last modified: Tue 6:12 PM, August 16, 2022
+    Updated: Creating 2 classes [CreateFiles, CreateProject]
 '''
 
 import json
@@ -16,7 +16,7 @@ import datetime as dt
 import common
 
 
-class CreatFiles:
+class CreateFiles:
     '''this class will create all files for a new project'''
 
     def __init__(self, dirname):
