@@ -4,9 +4,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 7:42 PM, August 16, 2022
-    Updated: Added dirname as the CreateFiles class input
-             Added "contents/{dirname}" to .json files 
+    Last modified: Tue 8:29 PM, August 16, 2022
+    Updated: Add a new line to successfull message
 '''
 
 import json
@@ -137,9 +136,10 @@ class CreateProject:
                 return False
 
             # print successful creation message
-            print(f"\n\"{dirname.title()}\" created successfully")
+            print(f"\n\"{dirname}\" created successfully")
+            print(f"Now you can add new words to \"{dirname}\"")
         except FileExistsError:
-            print(f"\nERROR: \"{dirname.title()}\" is already exist")
+            print(f"\nERROR: \"{dirname}\" is already exist")
             return False
         except FileNotFoundError:
             print("\nERROR: \"contents\" direcotry does not exist")
