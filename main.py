@@ -17,7 +17,7 @@ import os
 import sys
 
 # import my .py modules
-sys.path.append("/src")
+sys.path.append("src/")
 import common
 import create
 import delete
@@ -28,7 +28,7 @@ import update
 def setup_contents():
     '''set up contents directory if it doesn't exist'''
 
-    path = "/contents"
+    path = "contents"
     if not os.path.exists(path):
         os.mkdir(path)
 
