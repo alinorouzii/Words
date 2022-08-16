@@ -51,9 +51,9 @@ def get_option():
         if option == 1:
             ret_create_n = create.run()
             if ret_create_n:
-                print("New project created successfully")
+                print("\nNew project created successfully")
             else:
-                print("Creating new project failed")
+                print("\nCreating new project failed")
         elif option == 2:
             pass
         elif option == 3:
@@ -62,7 +62,7 @@ def get_option():
             print("ERROR: input must be 1, 2, or 3")
             return False
     except:
-        print("ERROR: wrong input")
+        print("\nERROR: wrong input")
         return False
 
 
