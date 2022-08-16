@@ -23,22 +23,20 @@ class CreateFiles:
 class CreateProject:
     '''this class will create a new project(directory)'''
 
-    def get_name(self):
-        '''get the name of a new project and return it'''
+    def get_dirname(self):
+        '''get the directory name of a new project and return it'''
         
-        name = input("Choose a name for your project: ")
-        return name
+        dirname = input("Choose a name for your project: ")
+        return dirname.title()
 
-    def project_exist(self, path):
-        '''
-            handle an existing project
-            print a message and return True if exists
-        '''
+    def create_project(self, dirname, name):
+        '''create the actual project here (if it doesn't exist)'''
 
-        if os.path.exists(path):
-            print("ERROR: project is already exist")
-            return True
-
-        return False
-
-    # create settings.json, wrong.json, words.json
+        try:
+            os.mkdir(dirname)
+            # before print, create 3 .json files here
+            print(f"\"{name.title()}\" created successfully")
+        except FileExistsError:
+            print(f"ERROR: \"{name.title()}\" is already exist")
+        except FileNotFoundError:
+            print("ERROR: \"contents\" direcotry does not exist")
