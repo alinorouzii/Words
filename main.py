@@ -49,11 +49,10 @@ def get_option():
     try:
         if option == 1:
             ret_create_n = create.run()
-            return ret_create_n
-            # if ret_n:
-            #     print("New project created successfully")
-            # else:
-            #     print("Creating new project failed")
+            if ret_create_n:
+                print("New project created successfully")
+            else:
+                print("Creating new project failed")
         elif option == 2:
             pass
         elif option == 3:
@@ -66,12 +65,7 @@ def get_option():
         return False
 
 
-
 if __name__ == '__main__':
     setup_contents()
     msg_options()
-    ret_n = get_option()
-
-    # ret_n will be True or False
-    # based on ret_n, print a message to show if operation was successful or not
-    # here ...
+    get_option()
