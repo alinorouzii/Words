@@ -59,7 +59,7 @@ def get_option():
         elif option == 3:
             pass
         else:
-            print("ERROR: input must be 1, 2, or 3")
+            print("\nERROR: input must be 1, 2, or 3")
             return False
     except:
         print("\nERROR: wrong input")
