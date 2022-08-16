@@ -4,8 +4,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 8:29 PM, August 16, 2022
-    Updated: Add a new line to successfull message
+    Last modified: Tue 10:03 PM, August 16, 2022
+    Updated: Added "contents/{dirname}" when handling failed project creation
 '''
 
 import json
@@ -132,7 +132,7 @@ class CreateProject:
             # it must delete the project direcotry before return False
             if not (ret_settings and ret_words and ret_wrongs):
                 print(f"ERROR: Creating \"{dirname.title()}\" failed")
-                shutil.rmtree(dirname)
+                shutil.rmtree(f"contents/{dirname}")
                 return False
 
             # print successful creation message
