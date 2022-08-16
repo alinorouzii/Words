@@ -36,6 +36,7 @@ def setup_contents():
 def msg_options():
     '''print which options do the program have'''
 
+    print()
     print("\t(1) Create a new project")
     print("\t(2) Work with an existing project")
     print("\t(3) Delete projects")
