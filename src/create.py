@@ -5,7 +5,8 @@
 '''
     Creator: Ali Norouzi
     Last modified: Tue 7:42 PM, August 16, 2022
-    Updated: remove "contents" to dirname
+    Updated: Added dirname as the CreateFiles class input
+             Added "contents/{dirname}" to .json files 
 '''
 
 import json
@@ -19,6 +20,9 @@ import common
 
 class CreateFiles:
     '''this class will create all files for a new project'''
+
+    def __init__(self, dirname):
+        self.dirname = dirname
 
     def _get_interval(self):
         '''get interval from the user to use them into create_settings()'''
@@ -35,7 +39,7 @@ class CreateFiles:
         return interval
 
     
-    def create_settings(self, dirname):
+    def create_settings(self):
         '''
             create settings.json file
             settings.json will contain:
@@ -56,7 +60,7 @@ class CreateFiles:
             return False
 
         settings = {
-            'projecdt name' : dirname,
+            'projecdt name' : self.dirname,
             'created at'    : str(curr_date),
             'last practice' : str(curr_date),
             'interval'      : interval,  # interval is inter for days
@@ -64,7 +68,7 @@ class CreateFiles:
         }
 
         try: 
-            with open("settings.json", 'w') as json_file:
+            with open(f"contents/{self.dirname}/settings.json", 'w') as json_file:
                 json.dump(settings, json_file)
         except OSError:
             return False                     # if creating was failed
@@ -75,7 +79,7 @@ class CreateFiles:
         '''create words.json to store words inside it'''
 
         try:
-            with open("words.json", 'w') as json_file:
+            with open(f"contents/{self.dirname}/words.json", 'w') as json_file:
                 json.dump(dict(), json_file)
         except OSError:
             return False                     # if creating was failed
@@ -95,7 +99,7 @@ class CreateFiles:
         '''
 
         try:
-            with open("wrongs.json", 'w') as json_file:
+            with open(f"contents/{self.dirname}/wrongs.json", 'w') as json_file:
                 json.dump(dict(), json_file)
         except OSError:
             return False                     # if creating was failed
@@ -120,8 +124,8 @@ class CreateProject:
             os.mkdir(f"contents/{dirname}")
 
             # create 3 .json files
-            create_files = CreateFiles()
-            ret_settings = create_files.create_settings(dirname)
+            create_files = CreateFiles(dirname)
+            ret_settings = create_files.create_settings()
             ret_words    = create_files.create_words()
             ret_wrongs   = create_files.create_wrongs()
 
