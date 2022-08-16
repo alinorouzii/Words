@@ -19,6 +19,6 @@ def list_projects():
 def print_projects(projects):
         '''print all projects that are existed'''
 
-        print("\n---LIST OF ALL EXISTING PROJECTS---")
+        print("\n--- LIST OF ALL EXISTING PROJECTS ---\n")
         for i, project in enumerate(projects, start=1):
             print(f"\t({i}) {project}")
