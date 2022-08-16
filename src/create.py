@@ -60,7 +60,7 @@ class CreateFiles:
             'projecdt name' : dirname,
             'created at'    : curr_date,
             'last practice' : curr_date,
-            'interval'      : interval,       # interval is in day(s)
+            'interval'      : interval,  # interval is inter for days
             'next practice' : curr_date + dt.timedelta(days=interval)
         }
 
