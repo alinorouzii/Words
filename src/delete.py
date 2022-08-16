@@ -23,7 +23,7 @@ class DeleteProject:
     # get numbers of all projects we want to delete
     # or get "all" to delete all projects at once
 
-    def confirm_input(self, inp_list) -> Boolean:
+    def confirm_input(self, inp_list) -> bool:
         '''confirm if list of numbers is all numbers or just "all"'''
 
         len_input = len(inp_list)
