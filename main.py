@@ -8,9 +8,9 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 4:26 PM, August 16, 2022
-    Added: import modules
-           __name__ condition
+    Last modified: Tue 7:21 PM, August 16, 2022
+    Updated: get_option()
+             Added create new project codes to it
 '''
 
 import os
@@ -48,7 +48,12 @@ def get_option():
 
     try:
         if option == 1:
-            pass
+            ret_create_n = create.run()
+            return ret_create_n
+            # if ret_n:
+            #     print("New project created successfully")
+            # else:
+            #     print("Creating new project failed")
         elif option == 2:
             pass
         elif option == 3:
@@ -65,4 +70,8 @@ def get_option():
 if __name__ == '__main__':
     setup_contents()
     msg_options()
-    get_option
+    ret_n = get_option()
+
+    # ret_n will be True or False
+    # based on ret_n, print a message to show if operation was successful or not
+    # here ...
