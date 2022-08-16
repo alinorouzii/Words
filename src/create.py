@@ -57,10 +57,10 @@ class CreateFiles:
 
         settings = {
             'projecdt name' : dirname,
-            'created at'    : curr_date,
-            'last practice' : curr_date,
+            'created at'    : str(curr_date),
+            'last practice' : str(curr_date),
             'interval'      : interval,  # interval is inter for days
-            'next practice' : curr_date + dt.timedelta(days=interval)
+            'next practice' : str(curr_date + dt.timedelta(days=interval))
         }
 
         try: 
