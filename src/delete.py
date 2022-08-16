@@ -4,8 +4,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 8:52 PM, August 16, 2022
-    Updated: Created confirm_input()
+    Last modified: Tue 9:22 PM, August 16, 2022
+    Updated: Created get_projects()
 '''
 
 import os
@@ -17,7 +17,7 @@ import common
 class DeleteProject:
     '''Delete one or more (even all) projects'''
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.projects = common.list_projects()
 
     # get numbers of all projects we want to delete
@@ -41,6 +41,18 @@ class DeleteProject:
 
         return True
 
+    def get_projects(self) -> list:
+        '''
+            get a list of projects (as string) from the user
+            return a list of splitted the string
+        '''
+
+        print("\nEnter numbers for each project (such as: 2 8 12),")
+        print("Or enter \"all\" to delete all projects at once")
+        print("NOTE: deleted projects cannot be reversed")
+        selected = input("Enter numbers or \"all\": ")
+
+        return selected.split()
 
     def del_projects(self):
         '''this method will run deleting projects'''
@@ -54,7 +66,5 @@ class DeleteProject:
         common.print_projects(self.projects)
 
         # input projects to delete (as a list)
-        print("\nEnter numbers for each project (such as: 2 8 12),")
-        print("Or enter \"all\" to delete all projects at once")
-        print("NOTE: deleted projects cannot be reversed")
-        selected = input("Enter numbers or \"all\": ")
+        
+
