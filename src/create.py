@@ -4,11 +4,13 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 6:12 PM, August 16, 2022
-    Updated: Creating 2 classes [CreateFiles, CreateProject]
+    Last modified: Tue 6:30 PM, August 16, 2022
+    Updated: Created get_interval()
+             Removed __init__() from CreateFiles class
 '''
 
 import json
+from multiprocessing.sharedctypes import Value
 import os
 import datetime as dt
 
@@ -19,10 +21,22 @@ import common
 class CreateFiles:
     '''this class will create all files for a new project'''
 
-    def __init__(self, dirname):
-        self.dirname = dirname
+    def get_interval(self):
+        '''get interval from the user to use them into create_settings()'''
+
+        print("\nHow many days should there be a break between each exercise?")
+        print("Enter a number equal or greater than 1")
+
+        try:
+            interval = int(input("Enter a number: "))
+        except ValueError:
+            print("ERROR: You should enter an interger greater than or equal to 1")
+            return False
+
+        return interval
+
     
-    def create_settings(self, interval=1):
+    def create_settings(self, dirname, interval=1):
         '''
             create settings.json file
             settings.json will contain:
