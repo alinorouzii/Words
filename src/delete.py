@@ -4,8 +4,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 9:55 PM, August 16, 2022
-    Updated: Created 2 methods to delete projects, AGAIN
+    Last modified: Tue 10:23 PM, August 16, 2022
+    Updated: Refined _confirm_input() to check numeric inputs better
 '''
 
 import os
@@ -39,7 +39,9 @@ class DeleteProject:
 
         for element in inp_list:
             # if each element in the list contains non-digit character or isn't x >= 1
-            if not element.isdigit() and int(element) >= 1:
+            if not (element.isdigit() and int(element) >= 1):
+                return False
+            elif int(element) >= len_input:
                 return False
 
         return True
@@ -91,7 +93,7 @@ class DeleteProject:
 
         # error handling
         if ret_confirm == 0:
-            print("ERROR: wrong input")
+            print("\nERROR: wrong input")
             return False
 
         # delete projects here
