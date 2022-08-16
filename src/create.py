@@ -113,7 +113,7 @@ class CreateProject:
         dirname = input("Choose a name for your project: ")
         return dirname.title()
 
-    def create_project(self, dirname, name):
+    def create_project(self, dirname):
         '''create the actual project here (if it doesn't exist)'''
 
         try:
@@ -143,3 +143,13 @@ class CreateProject:
             return False
 
         return True
+
+
+def run():
+    '''run create.py from here'''
+
+    new_project    = CreateProject()
+    dirname        = new_project.get_dirname()
+    create_project = new_project.create_project(dirname)
+
+    return create_project       # True if project created successfully
