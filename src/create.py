@@ -9,6 +9,7 @@
 '''
 
 import json
+import os
 
 # import my .py module
 import common
@@ -22,10 +23,22 @@ class CreateFiles:
 class CreateProject:
     '''this class will create a new project(directory)'''
 
-    # get the name of the new project
-    def get_name(self, name):
-        '''get the name of a new project'''
+    def get_name(self):
+        '''get the name of a new project and return it'''
         
-        
-    # check if the name doesn't exist (handle existance)
+        name = input("Choose a name for your project: ")
+        return name
+
+    def project_exist(self, path):
+        '''
+            handle an existing project
+            print a message and return True if exists
+        '''
+
+        if os.path.exists(path):
+            print("ERROR: project is already exist")
+            return True
+
+        return False
+
     # create settings.json, wrong.json, words.json
