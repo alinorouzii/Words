@@ -57,7 +57,7 @@ class CreateFiles:
             return False
 
         settings = {
-            'name'          : dirname,
+            'projecdt name'          : dirname,
             'created at'    : curr_date,
             'last practice' : curr_date,
             'interval'      : interval,       # interval is in day(s)
