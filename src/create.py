@@ -32,7 +32,7 @@ class CreateFiles:
         try:
             interval = int(input("Enter a number: "))
         except ValueError:
-            print("\nERROR: You should enter an interger greater than or equal to 1")
+            print("\nERROR: You should enter an \"interger\" greater than or equal to 1")
             return False
 
         return interval
