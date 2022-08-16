@@ -46,15 +46,15 @@ def get_option():
     print()
     option = input("Enter a number: ")
 
-    if option == 1:
+    if option == '1':
         ret_create_n = create.run()
         if ret_create_n:
             print("\nNew project created successfully")
         else:
             print("\nCreating new project failed")
-    elif option == 2:
+    elif option == '2':
         pass
-    elif option == 3:
+    elif option == '3':
         pass
     else:
         print("\nERROR: input must be 1, 2, or 3")
