@@ -5,12 +5,10 @@
 '''
     Creator: Ali Norouzi
     Last modified: Tue 6:30 PM, August 16, 2022
-    Updated: Created get_interval()
-             Removed __init__() from CreateFiles class
+    Updated: removed an unwanted import
 '''
 
 import json
-from multiprocessing.sharedctypes import Value
 import os
 import datetime as dt
 
