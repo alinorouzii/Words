@@ -4,8 +4,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 8:55 PM, August 16, 2022
-    Updated: Created list_projects()
+    Last modified: Tue 9:03 PM, August 16, 2022
+    Updated: Created print_projects()
 '''
 
 import os
@@ -14,4 +14,10 @@ import os
 def list_projects():
     '''Create a list of all projects and return a list of them'''
 
-    return os.listdir("contents")
+    return sorted(os.listdir("contents"))
+
+def print_projects(projects):
+        '''print all projects that are existed'''
+
+        for i, project in enumerate(projects, start=1):
+            print(f"({i}) {project}")
