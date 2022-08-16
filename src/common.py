@@ -4,8 +4,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 9:57 PM, August 16, 2022
-    Updated: Added a title to print() for listing projects
+    Last modified: Tue 10:13 PM, August 16, 2022
+    Updated: Changed codes in list_projects() to remove '.DS_Store' from returned list
 '''
 
 import os
@@ -14,7 +14,12 @@ import os
 def list_projects():
     '''Create a list of all projects and return a list of them'''
 
-    return sorted(os.listdir("contents"))
+    projects = os.listdir("contents")
+
+    while ".DS_Store" in projects:
+        projects.remove(".DS_Store")
+
+    return sorted(projects)
 
 def print_projects(projects):
         '''print all projects that are existed'''
