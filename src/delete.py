@@ -4,9 +4,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 9:39 PM, August 16, 2022
-    Updated: Import shutil module
-             Reduce 2 _del...() to 1 method ( _del_projects() )
+    Last modified: Tue 9:43 PM, August 16, 2022
+    Updated: Created run()
 '''
 
 import os
@@ -94,3 +93,12 @@ class DeleteProject:
             self._del_projects(inp_projects)
 
         return True
+
+
+def run():
+    '''run delete operations from here'''
+
+    del_projects = DeleteProject()
+    ret_del = del_projects.del_projects()
+
+    return ret_del
