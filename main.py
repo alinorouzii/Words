@@ -8,8 +8,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 7:50 PM, August 16, 2022
-    Updated: Removed try-except from get_option()
+    Last modified: Tue 8:06 PM, August 16, 2022
+    Updated: Removed if-else from "if option == '1'"
 '''
 
 import os
@@ -47,11 +47,7 @@ def get_option():
     option = input("Enter a number: ")
 
     if option == '1':
-        ret_create_n = create.run()
-        if ret_create_n:
-            print("\nNew project created successfully")
-        else:
-            print("\nCreating new project failed")
+        ret_create_n = create.run()     # probably should remove 'ret_create_n'
     elif option == '2':
         pass
     elif option == '3':
