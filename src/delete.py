@@ -4,8 +4,9 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 9:22 PM, August 16, 2022
-    Updated: Created get_projects()
+    Last modified: Tue 9:30 PM, August 16, 2022
+    Updated: Created _del_all_projects()
+             Created _del_some_projects()
 '''
 
 import os
@@ -17,13 +18,15 @@ import common
 class DeleteProject:
     '''Delete one or more (even all) projects'''
 
+
     def __init__(self) -> None:
         self.projects = common.list_projects()
 
     # get numbers of all projects we want to delete
     # or get "all" to delete all projects at once
 
-    def confirm_input(self, inp_list) -> bool:
+
+    def _confirm_input(self, inp_list) -> bool:
         '''confirm if list of numbers is all numbers or just "all"'''
 
         len_input = len(inp_list)
@@ -41,7 +44,8 @@ class DeleteProject:
 
         return True
 
-    def get_projects(self) -> list:
+
+    def _get_projects(self) -> list:
         '''
             get a list of projects (as string) from the user
             return a list of splitted the string
@@ -54,7 +58,20 @@ class DeleteProject:
 
         return selected.split()
 
-    def del_projects(self):
+
+    def _del_all_projects(self):
+        '''delete all projects at once'''
+        
+        pass
+
+
+    def _del_some_projects(self):
+        '''delete selected projects'''
+
+        pass
+
+
+    def del_projects(self) -> bool:
         '''this method will run deleting projects'''
 
         # when there is no project
@@ -66,5 +83,10 @@ class DeleteProject:
         common.print_projects(self.projects)
 
         # input projects to delete (as a list)
-        
+        inp_projects = self._get_projects()
+        ret_confirm  = self._confirm_input(inp_projects)
 
+        # error handling
+        if ret_confirm == 0:
+            print("ERROR: wrong input")
+            return False
