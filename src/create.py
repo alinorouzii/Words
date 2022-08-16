@@ -28,7 +28,7 @@ class CreateFiles:
         try:
             interval = int(input("Enter a number: "))
         except ValueError:
-            print("ERROR: You should enter an interger greater than or equal to 1")
+            print("\nERROR: You should enter an interger greater than or equal to 1")
             return False
 
         return interval
@@ -113,8 +113,8 @@ class CreateProject:
             os.mkdir(dirname)
             # before print, create 3 .json files here
             # delete this directory if creating .json files fail
-            print(f"\"{name.title()}\" created successfully")
+            print(f"\n\"{name.title()}\" created successfully")
         except FileExistsError:
-            print(f"ERROR: \"{name.title()}\" is already exist")
+            print(f"\nERROR: \"{name.title()}\" is already exist")
         except FileNotFoundError:
-            print("ERROR: \"contents\" direcotry does not exist")
+            print("\nERROR: \"contents\" direcotry does not exist")
