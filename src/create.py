@@ -4,9 +4,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 6:49 PM, August 16, 2022
-    Updated: import shutil module
-             complete create_project() in CreateProject class
+    Last modified: Tue 7:42 PM, August 16, 2022
+    Updated: remove "contents" to dirname
 '''
 
 import json
@@ -118,7 +117,7 @@ class CreateProject:
 
         try:
             # create a directory for the new project
-            os.mkdir(dirname)
+            os.mkdir(f"contents/{dirname}")
 
             # create 3 .json files
             create_files = CreateFiles()
