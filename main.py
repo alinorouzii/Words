@@ -8,8 +8,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 8:06 PM, August 16, 2022
-    Updated: Removed if-else from "if option == '1'"
+    Last modified: Tue 9:45 PM, August 16, 2022
+    Updated: Connect delete.run() to this file
 '''
 
 import os
@@ -47,11 +47,15 @@ def get_option():
     option = input("Enter a number: ")
 
     if option == '1':
-        ret_create_n = create.run()     # probably should remove 'ret_create_n'
+        ret_create = create.run()     # probably should remove 'ret_create'
     elif option == '2':
         pass
     elif option == '3':
-        pass
+        ret_delete = delete.run()
+        if ret_delete:
+            print("\nProjects deleted successfully")
+        else:
+            print("\nProjects couldn't be deleted")
     else:
         print("\nERROR: input must be 1, 2, or 3")
         return False
