@@ -113,7 +113,7 @@ class CreateProject:
     def get_dirname(self):
         '''get the directory name of a new project and return it'''
         
-        dirname = input("Choose a name for your project: ")
+        dirname = input("\nChoose a name for your project: ")
         return dirname.title()
 
     def create_project(self, dirname):
