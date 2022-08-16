@@ -4,8 +4,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 9:43 PM, August 16, 2022
-    Updated: Created run()
+    Last modified: Tue 9:55 PM, August 16, 2022
+    Updated: Created 2 methods to delete projects, AGAIN
 '''
 
 import os
@@ -38,8 +38,8 @@ class DeleteProject:
             return False
 
         for element in inp_list:
-            # if each element in the list contains non-digit character -- return False
-            if not element.isdigit():
+            # if each element in the list contains non-digit character or isn't x >= 1
+            if not element.isdigit() and int(element) >= 1:
                 return False
 
         return True
@@ -59,11 +59,19 @@ class DeleteProject:
         return selected.split()
 
 
-    def _del_projects(self, projects):
-        '''delete some or all projects'''
+    def _del_all_projects(self):
+        '''delete all projects at once'''
         
-        for project in projects:
+        for project in self.projects:
             shutil.rmtree(f"contents/{project}")
+
+
+    def _del_some_projects(self, inp_projects):
+        '''delete selected projects'''
+
+        for n in inp_projects:  # each inputed project is actually a number started at 1
+            dirname = self.projects[int(n) - 1]
+            shutil.rmtree(f"contents/{dirname}")
 
 
     def del_projects(self) -> bool:
@@ -88,9 +96,9 @@ class DeleteProject:
 
         # delete projects here
         if inp_projects[0] == "all":
-            self._del_projects(self.projects)
+            self._del_all_projects()
         else:
-            self._del_projects(inp_projects)
+            self._del_some_projects(inp_projects)
 
         return True
 
