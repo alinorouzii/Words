@@ -8,9 +8,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 7:21 PM, August 16, 2022
-    Updated: get_option()
-             Added create new project codes to it
+    Last modified: Tue 7:50 PM, August 16, 2022
+    Updated: Removed try-except from get_option()
 '''
 
 import os
@@ -44,25 +43,21 @@ def msg_options():
 def get_option():
     '''get an option from the use and run the corresponding method'''
 
-    try:
-        print()
-        option = int(input("Enter a number: "))
+    print()
+    option = input("Enter a number: ")
 
-        if option == 1:
-            ret_create_n = create.run()
-            if ret_create_n:
-                print("\nNew project created successfully")
-            else:
-                print("\nCreating new project failed")
-        elif option == 2:
-            pass
-        elif option == 3:
-            pass
+    if option == 1:
+        ret_create_n = create.run()
+        if ret_create_n:
+            print("\nNew project created successfully")
         else:
-            print("\nERROR: input must be 1, 2, or 3")
-            return False
-    except:
-        print("\nERROR: wrong input")
+            print("\nCreating new project failed")
+    elif option == 2:
+        pass
+    elif option == 3:
+        pass
+    else:
+        print("\nERROR: input must be 1, 2, or 3")
         return False
 
 
