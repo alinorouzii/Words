@@ -4,8 +4,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 9:03 PM, August 16, 2022
-    Updated: Created print_projects()
+    Last modified: Tue 9:47 PM, August 16, 2022
+    Updated: Added print() to print_projects()
 '''
 
 import os
@@ -19,5 +19,6 @@ def list_projects():
 def print_projects(projects):
         '''print all projects that are existed'''
 
+        print()
         for i, project in enumerate(projects, start=1):
             print(f"({i}) {project}")
