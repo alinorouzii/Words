@@ -4,8 +4,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 10:13 PM, August 16, 2022
-    Updated: Changed codes in list_projects() to remove '.DS_Store' from returned list
+    Last modified: Tue 10:46 PM, August 16, 2022
+    Updated: Changed 'while' loop to 'if' to remove '.DS_Store' from returned list
 '''
 
 import os
@@ -16,14 +16,20 @@ def list_projects():
 
     projects = os.listdir("contents")
 
-    while ".DS_Store" in projects:
+    if ".DS_Store" in projects:
         projects.remove(".DS_Store")
-
+    
     return sorted(projects)
 
-def print_projects(projects):
+def print_projects(projects) -> bool:
         '''print all projects that are existed'''
+
+        if not projects:
+            print("\nNo project exists")
+            return False
 
         print("\n--- LIST OF ALL EXISTING PROJECTS ---\n")
         for i, project in enumerate(projects, start=1):
             print(f"\t({i}) {project}")
+
+        return True

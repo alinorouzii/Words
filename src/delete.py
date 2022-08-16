@@ -57,7 +57,7 @@ class DeleteProject:
         print("\nEnter numbers for each project (such as: 2 8 12),")
         print("Or enter \"all\" to delete all projects at once")
         print("NOTE: deleted projects cannot be reversed")
-        selected = input("Enter numbers or \"all\": ")
+        selected = input("\nEnter numbers or \"all\": ")
 
         return selected.split()
 
@@ -80,13 +80,10 @@ class DeleteProject:
     def del_projects(self) -> bool:
         '''this method will run deleting projects'''
 
-        # when there is no project
-        if not self.projects:
-            print("\nNo project exists")
+        # print all projects if they exist
+        # otherwise print something else and return False
+        if not common.print_projects(self.projects):
             return False
-
-        # print all projects
-        common.print_projects(self.projects)
 
         # input projects to delete (as a list)
         inp_projects = self._get_projects()
