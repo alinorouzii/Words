@@ -4,8 +4,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 6:30 PM, August 16, 2022
-    Updated: removed an unwanted import
+    Last modified: Tue 6:39 PM, August 16, 2022
+    Updated: Renamed get_interval() to _get_interval because it's a inner method
 '''
 
 import json
@@ -19,7 +19,7 @@ import common
 class CreateFiles:
     '''this class will create all files for a new project'''
 
-    def get_interval(self):
+    def _get_interval(self):
         '''get interval from the user to use them into create_settings()'''
 
         print("\nHow many days should there be a break between each exercise?")
@@ -48,9 +48,14 @@ class CreateFiles:
         '''
 
         curr_date = dt.datetime.now()
+        interval  = self._get_interval()
+
+        # error handling: if interval was wrong and returned False
+        if interval == False:
+            return False
 
         settings = {
-            'name'          : self.dirname,
+            'name'          : dirname,
             'created at'    : curr_date,
             'last practice' : curr_date,
             'interval'      : interval,       # interval is in day(s)
@@ -110,9 +115,14 @@ class CreateProject:
         '''create the actual project here (if it doesn't exist)'''
 
         try:
+            # create a directory for the new project
             os.mkdir(dirname)
+
             # before print, create 3 .json files here
+            create_files = CreateFiles()
+
             # delete this directory if creating .json files fail
+
             print(f"\n\"{name.title()}\" created successfully")
         except FileExistsError:
             print(f"\nERROR: \"{name.title()}\" is already exist")
