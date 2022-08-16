@@ -4,8 +4,8 @@
 
 '''
     Creator: Ali Norouzi
-    Last modified: Tue 10:23 PM, August 16, 2022
-    Updated: Refined _confirm_input() to check numeric inputs better
+    Last modified: Tue 10:25 PM, August 16, 2022
+    Updated: Refined 'elif int(element) >= len_input:' change to '>'
 '''
 
 import os
@@ -41,7 +41,7 @@ class DeleteProject:
             # if each element in the list contains non-digit character or isn't x >= 1
             if not (element.isdigit() and int(element) >= 1):
                 return False
-            elif int(element) >= len_input:
+            elif int(element) > len_input:
                 return False
 
         return True
