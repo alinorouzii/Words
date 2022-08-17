@@ -1,2 +1,5 @@
 # ignore ALL files and directories named "contents"
 contents/
+
+# ignore __pycache__ directory inside src/
+src/__pycache__
