@@ -11,7 +11,7 @@
 import os
 
 
-def list_projects():
+def list_projects() -> list:
     '''Create a list of all projects and return a list of them'''
 
     projects = os.listdir("contents")
