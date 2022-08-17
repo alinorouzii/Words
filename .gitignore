@@ -3,3 +3,7 @@ contents/
 
 # ignore __pycache__ directory inside src/
 src/__pycache__
+
+# ignore .DS_Store 
+.DS_Store
+src/.DS_Store
